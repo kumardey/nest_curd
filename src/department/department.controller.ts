@@ -3,6 +3,7 @@ import { DepartmentService } from "./department.service";
 import { CreateDepartmentDto } from "./dto/create-department.dto";
 import { promises } from "dns";
 import { Department } from "./entities/department.entity";
+import { CreateDepartmentsDto } from "./dto/create-departments.dto";
 
 @Controller('departments')
 export class DepartmentController{
@@ -17,4 +18,12 @@ export class DepartmentController{
         return this.departmentService.findall();
     }
 
+    @Post('bulk1')
+    async createMultiple1(@Body() createDepartmentsDto: CreateDepartmentsDto) {
+      return this.departmentService.createMultipleDepartments(createDepartmentsDto);
+    }
+    @Post('bulk2')
+    async createMultiple2(@Body() createDepartmentsDto: CreateDepartmentsDto) {
+      return this.departmentService.createMultiple(createDepartmentsDto);
+    }
 }
