@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
 import { DepartmentService } from "./department.service";
 import { CreateDepartmentDto } from "./dto/create-department.dto";
-import { promises } from "dns";
+// import { promises } from "dns";
 import { Department } from "./entities/department.entity";
 import { CreateDepartmentsDto } from "./dto/create-departments.dto";
 

@@ -12,4 +12,11 @@ export class EmployeeProjectController{
         // Pass `projectIds` to the service method
         return await this.employeeProjectService.attachEmployeeProject(employeeId, projectIds);
     }
+
+    @Post(':id/detach-role')
+    async detachEmployeeProject(@Param('id',ParseIntPipe) employeeId: number, @Body() body: {projectIds: number[]}){
+        const { projectIds } = body;
+        return await this.employeeProjectService.detachEmployeeProject(employeeId,projectIds)
+
+    }
 }
